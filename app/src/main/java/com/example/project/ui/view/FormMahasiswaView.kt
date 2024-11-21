@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -27,13 +28,14 @@ fun FormMahasiswaView(
     onSubmitClick: (MutableList<String>) -> Unit
 ){
     var nama by remember { mutableStateOf("") }
+    var nim by remember { mutableStateOf(" ") }
     var email by remember { mutableStateOf("")}
     var noTelp by remember { mutableStateOf("")}
     var alamat by remember { mutableStateOf("")}
     var memilihJk by remember { mutableStateOf("")}
 
     val Mahasiswa: MutableList<String> = mutableListOf(
-        nama, memilihJk, alamat
+        nama,nim, memilihJk, alamat
     )
     Column (modifier = modifier
         .fillMaxSize()
@@ -52,6 +54,13 @@ fun FormMahasiswaView(
             label = { Text( "nama") },
             placeholder = { Text( "Masukkan Nama Anda") },
         )
+
+        Spacer(modifier = Modifier.padding(5.dp))
+        OutlinedTextField(value = nim,
+            onValueChange = {nim = it},
+            placeholder = { Text("Masukkan Nim")
+            }, label = {Text("Nim")},
+            modifier = Modifier.fillMaxWidth().padding(5.dp))
 
         Row {
             listGender.forEach { item ->
