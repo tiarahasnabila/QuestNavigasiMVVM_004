@@ -30,34 +30,5 @@ fun Navigasi(
     modifier: Modifier = Modifier,
     viewModel: MahasiswaViewModel = viewModel(),
     navHostController: NavHostController = rememberNavController()
-) {
-    Scaffold { isipadding ->
-        val uiState by viewModel.dataModel.collectAsState()
-        NavHost(
-            modifier = modifier.padding(isipadding),
-            navController = navHostController, startDestination = Halaman.Form.name
-        ) {
-            composable(route = Halaman.Form.name) {
-                val konteks = LocalContext.current
-                FormMahasiswaView(
-                    listGender = ListGender.listJk.map { isi ->
-                        konteks.resources.getString(isi)
-                    },
-                    onSubmitClick = {
-                        viewModel.saveDataMhs(it)
-                        navHostController.navigate(Halaman.Data.name)
-                    }
-                )
 
-            }
-            composable(route = Halaman.Data.name) {
-                DetailMahasiswaView(
-                    uiStateMahasiswa = uiState,
-                    onBackButtonClicked = {
-                        navHostController.popBackStack()
-                    }
-                )
-            }
-        }
-    }
-}
+) {
