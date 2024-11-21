@@ -64,6 +64,49 @@ fun FormMahasiswaView(modifier : Modifier = Modifier,
             label = { Text("nama") },
             placeholder = { Text("Masukkan Nama Anda") },
         )
+        Row {
+            listGender.forEach { item ->
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton(
+                        selected = memilihJk == item,
+                        onClick = {
+                            memilihJk = item
+                        }
+                    )
+                    Text(item)
+                }
+            }
+        }
+        TextField(
+            modifier = Modifier.fillMaxWidth().padding(5.dp),
+            value = email,
+            onValueChange = { email = it },
+            label = { Text("email") },
+            placeholder = { Text("Masukkan Email Anda") },
+        )
+        TextField(
+            modifier = Modifier.fillMaxWidth().padding(5.dp),
+            value = noTelp,
+            onValueChange = { noTelp = it },
+            label = { Text("noTelp") },
+            placeholder = { Text("Masukkan NoTelp Anda") },
+        )
+        TextField(
+            modifier = Modifier.fillMaxWidth().padding(5.dp),
+            value = alamat,
+            onValueChange = { alamat = it },
+            label = { Text("alamat") },
+            placeholder = { Text("Masukkan Alamat Anda") },
+        )
+
+        ElevatedButton(onClick = {
+            onSubmitClick(listData)
+        }) {
+            Text("Submit")
+
+        }
+    }
+}
 
 
 
