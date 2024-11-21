@@ -45,6 +45,25 @@ fun FormMahasiswaView(modifier : Modifier = Modifier,
         nama,memilihJk,alamat
     )
 
+    Column (modifier = modifier
+        .fillMaxSize()
+        .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            "Biodata",
+            fontSize = 25.sp,
+            fontWeight = FontWeight.Bold
+        )
+
+        Spacer(Modifier.padding(16.dp))
+        TextField(
+            modifier = Modifier.fillMaxWidth().padding(5.dp),
+            value = nama,
+            onValueChange = { nama = it },
+            label = { Text("nama") },
+            placeholder = { Text("Masukkan Nama Anda") },
+        )
 
 
 
