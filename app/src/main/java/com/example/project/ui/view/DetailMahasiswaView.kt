@@ -16,3 +16,21 @@ fun DetailMahasiswaView(
     dataMhs:Mahasiswa,
     modifier: Modifier= Modifier
 ){
+    val listDataMhs = listOf(
+        Pair("Nama", dataMhs.nama),
+        Pair("Gender", dataMhs.gender),
+        Pair("Alamat", dataMhs.alamat),
+    )
+
+    Column (
+        modifier = modifier.fillMaxSize().padding(16.dp)
+    ){
+        listDataMhs.forEach { data ->
+            DetailMhs(judul = data.first,
+                isi = data.second )
+        }
+    }
+
+}
+
+
